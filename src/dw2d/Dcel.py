@@ -458,9 +458,9 @@ def create_halfedges_from_edges(Edges,Vertices_list):
     for cell_idx in polylines:
         #print("Cell_idx",cell_idx)
         _,c=np.unique(polylines[cell_idx][:,:2],return_counts=True)
-        #assert np.unique(c)==2
-        if (c != 2).any():
-            print(f"At least one element in cell_idx {cell_idx} does not have exactly 2 unique counts.")
+        assert np.unique(c)==2
+        #if (c != 2).any():
+            #print(f"At least one element in cell_idx {cell_idx} does not have exactly 2 unique counts.")
         l = polylines[cell_idx]
         closed_line = make_closed_oriented_closed_line(l,verts,cell_idx==0)
         #print(closed_line)
